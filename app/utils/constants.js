@@ -1,0 +1,1 @@
+export const BASE_AIR_TRAFIC_URL = 'http://public-api.adsbexchange.com/VirtualRadar/AircraftList.json'
