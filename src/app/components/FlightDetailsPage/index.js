@@ -23,14 +23,14 @@ export const FlightDetailsPage = (props) => {
 		const flight = getFlight()
 
 		return (
-			<div className="details-holder">
+			<section className="details-holder">
 				<img src={selectLogo(flight.manufacturerAndModel)} alt="logo"/>	
 				<div>				
 					<p>Manufacturer: {flight.manufacturerAndModel}</p>
 					<p>Departed: {flight.from}</p>
 					<p>Destination: {flight.to}</p>
 				</div>
-			</div>
+			</section>
 		)
 	}
 
