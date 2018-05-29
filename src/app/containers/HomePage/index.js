@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom'
 
 import './style.scss'
 
-class HomePage extends Component {
-	
+class HomePage extends Component {	
 	state = {
 		authorised: false
 	}
@@ -26,7 +25,7 @@ class HomePage extends Component {
 		})
 	}
 
-	displayAuthorisationConversation = () => {
+	displayAuthorisationMessage = () => {
 		return this.state.authorised ? 
 			(
 				<div className="alert alert-info text-center">
@@ -49,7 +48,7 @@ class HomePage extends Component {
 				<header className="jumbotron text-center">
 					<h1>Welcome To Air Traffic</h1>
 				</header>
-				{this.displayAuthorisationConversation()}
+				{this.displayAuthorisationMessage()}
 			</div>
 		)
 	}

@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 
 import { HomePage } from './../../containers/HomePage'
 import { FlightsPage } from './../../containers/FlightsPage'
-import { FlightDetailsPage } from '../../containers/FlightDetailsPage'
+import { FlightDetailsPage } from './../FlightDetailsPage'
 
 import './style.scss'
 

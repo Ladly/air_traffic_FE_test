@@ -1,5 +1,6 @@
 .flight-holder {
     padding: 0;
+
     li {
         list-style: none;
         display: flex;
@@ -7,12 +8,24 @@
         align-items: center;
         margin-top: 50px;
         padding: 10px;
+        &:hover {
+            transform: scale(1.1);
+        }
         &:nth-child(odd) {
             background: lightgray;
         }
     }
+
     img {
         width: 100px;
-        border: 1px solid black;
+        padding: 20px;        
+    }
+
+    .west-bound {
+        transform: rotate(90deg);
+    }
+
+    .east-bound {
+        transform: rotate(-90deg)
     }
 }

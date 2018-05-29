@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom'
 
 import { PlaneSvg } from './../Svg'
 
-export const FlightListItem = ({ altitude, codeNumber, id }) => {
+export const FlightListItem = ({ altitude, codeNumber, id, direction }) => {
+
 	return (
 		<li className="col-sm-4 offset-sm-4">
-			<PlaneSvg />
+			<PlaneSvg direction={direction}/>
 			<div >
 				<p>Altitude: {altitude}</p>
 				<p>Code number: {codeNumber}</p>
@@ -20,5 +21,6 @@ export const FlightListItem = ({ altitude, codeNumber, id }) => {
 FlightListItem.propTypes = {
 	altitude: PropTypes.number,
 	id: PropTypes.number,
-	codeNumber: PropTypes.string
+	codeNumber: PropTypes.string,
+	direction: PropTypes.string
 }

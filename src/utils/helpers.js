@@ -6,3 +6,9 @@ export const createFlight = (flights) => {
 		return new Flight(Id, Alt, Mdl, From, To, Trak, Icao)
 	})
 }
+
+export const sortFlights = (flights) => {
+	return flights.sort((a, b) => {
+		return a.altitude - b.altitude
+	}).reverse()
+}

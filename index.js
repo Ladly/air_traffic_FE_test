@@ -5,7 +5,7 @@ import $ from 'jquery'
 window.jQuery = $
 window.$ = $
 
-import { App } from './app/src/components/App'
+import { App } from './src/app/components/App'
 
 import './style.scss'
 

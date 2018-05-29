@@ -12,8 +12,15 @@ export class FlightsPage extends Component {
 	}
 
 	componentDidMount() {
+		this.getFreshData()
+		this.interval = setInterval(() => {
+			this.getFreshData()}, 60000)
+	}
+
+	getFreshData = () => {
 		const position = JSON.parse(sessionStorage.getItem('coordinates'))
 		const { longitude, latitude } = position
+
 		AirTrafficService.getTrafficFromPosition(latitude, longitude)
 			.then(flights => {
 				this.setState({flights}, ()=> {
@@ -38,6 +45,10 @@ export class FlightsPage extends Component {
 				)
 			})
 		}
+	}
+
+	componentWillUnmount() {
+		clearInterval(this.interval)
 	}
 
 	render() {
