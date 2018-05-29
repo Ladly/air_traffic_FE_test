@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 import './style.scss'
 
-class App extends Component {
+class HomePage extends Component {
 	
 	state = {
 		authorised: false
@@ -18,7 +19,7 @@ class App extends Component {
 			pos.latitude = position.coords.latitude
 			pos.longitude = position.coords.longitude
 			const posJson = JSON.stringify(pos) 
-			localStorage.setItem('coordinates', posJson)
+			sessionStorage.setItem('coordinates', posJson)
 			this.setState({authorised : true})
 		}, () => {
 			this.setState({authorised: false})
@@ -30,7 +31,7 @@ class App extends Component {
 			(
 				<div className="alert alert-info text-center">
 					<h6 className="landing-page-main">You grant me geolocation so now you can</h6>
-					<button className="btn btn-primary landing-page-main">Proceed</button>
+					<Link to='/flights' className="btn btn-primary landing-page-main" >Proceed</Link>
 				</div>
 			) : 
 			(
@@ -54,4 +55,5 @@ class App extends Component {
 	}
 }
 
-export { App }
+export { HomePage }
+
