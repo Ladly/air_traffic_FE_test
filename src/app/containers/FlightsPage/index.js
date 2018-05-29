@@ -14,9 +14,23 @@ export class FlightsPage extends Component {
 	}
 
 	componentDidMount() {
-		this.getFreshData()
+		 this.testForLocalStorageFlights()
+		
 		this.interval = setInterval(() => {
 			this.getFreshData()}, 60000)
+	}
+
+	testForLocalStorageFlights = () => {
+		if(sessionStorage.getItem('flights') === null) {
+			this.getFreshData()
+		} else {
+			this.displayLocalStorageFlights()
+		}
+	}
+
+	displayLocalStorageFlights = () => {
+		const flights = JSON.parse(sessionStorage.getItem('flights'))
+		this.setState({flights, loading: false})
 	}
 
 	getFreshData = () => {

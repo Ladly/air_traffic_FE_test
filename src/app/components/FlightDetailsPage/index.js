@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 import './style.scss'
 
@@ -32,8 +33,6 @@ export const FlightDetailsPage = (props) => {
 			</div>
 		)
 	}
-
-
 
 	return (
 		<div className="container">
