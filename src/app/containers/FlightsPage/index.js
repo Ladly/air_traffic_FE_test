@@ -2,13 +2,15 @@ import React, { Component } from 'react'
 
 import { AirTrafficService } from './../../../services/AirTrafficService'
 import { FlightListItem } from '../../components/FlightListItem'
+import { Loading } from '../../components/Loading'
 
 import './style.scss'
 
 
 export class FlightsPage extends Component {
 	state = {
-		flights: []
+		flights: [],
+		loading: true
 	}
 
 	componentDidMount() {
@@ -23,7 +25,7 @@ export class FlightsPage extends Component {
 
 		AirTrafficService.getTrafficFromPosition(latitude, longitude)
 			.then(flights => {
-				this.setState({flights}, ()=> {
+				this.setState({flights, loading: false}, ()=> {
 					const flightsJson = JSON.stringify(this.state.flights)
 					sessionStorage.setItem('flights', flightsJson)
 				})
@@ -51,9 +53,16 @@ export class FlightsPage extends Component {
 		clearInterval(this.interval)
 	}
 
+	isLoaded = () => {
+		if(this.state.loading) {
+			return <Loading />
+		}
+	}
+
 	render() {
 		return (
 			<div className="container">
+				{this.isLoaded()}
 				<ul className="flight-holder row">
 					{this.displayFlights()}
 				</ul>

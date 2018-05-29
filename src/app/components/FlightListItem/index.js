@@ -7,7 +7,7 @@ import { PlaneSvg } from './../Svg'
 export const FlightListItem = ({ altitude, codeNumber, id, direction }) => {
 
 	return (
-		<li className="col-sm-4 offset-sm-4">
+		<li className="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
 			<PlaneSvg direction={direction}/>
 			<div >
 				<p>Altitude: {altitude}</p>
