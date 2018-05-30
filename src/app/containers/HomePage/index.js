@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { AuthorizationMessage } from '../../components/AuthorizationMessage'
+
+
 
 import './style.scss'
 
 class HomePage extends Component {	
 	state = {
-		authorised: false
+		authorized: false
 	}
 
 	componentDidMount() {
@@ -19,14 +22,14 @@ class HomePage extends Component {
 			pos.longitude = position.coords.longitude
 			const posJson = JSON.stringify(pos) 
 			sessionStorage.setItem('coordinates', posJson)
-			this.setState({authorised : true})
+			this.setState({authorized : true})
 		}, () => {
-			this.setState({authorised: false})
+			this.setState({authorized: false})
 		})
 	}
 
 	displayAuthorisationMessage = () => {
-		return this.state.authorised ? 
+		return this.state.authorized ? 
 			(
 				<div className="alert alert-info text-center">
 					<h6 className="landing-page-main">You grant me geolocation so now you can</h6>
@@ -34,11 +37,7 @@ class HomePage extends Component {
 				</div>
 			) : 
 			(
-				<div>
-					<div className="alert alert-warning text-center">
-						<h6 className="landing-page-main">To use this site please allow geolocation</h6>
-					</div>
-				</div>
+				<AuthorizationMessage />
 			)
 	}
 
